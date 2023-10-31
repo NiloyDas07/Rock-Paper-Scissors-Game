@@ -13,18 +13,21 @@ body{
 }
 
 .game{
-  width: 50%;
+  width: 330px;
   display: flex;
   flex-direction: column;
 }
 
+.result{
+  width: 100%;
+  align-self: center;
+}
+
 .buttons{
-  width: 90%;
+  width: 100%;
   display: flex;
   align-self: center;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
+  justify-content: space-between;
 }
 
 button{
@@ -34,9 +37,10 @@ button{
 }
 
 .score{
+  width: 100%;
   display: flex;
   gap: 25px;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .computerText{
@@ -66,4 +70,19 @@ button{
   background-color: rgb(128, 126, 126);
   color: white;
   font-size: larger;
+}
+
+#resetButton{
+  display: flex;
+  justify-content: center;
+}
+
+#scoreReset{
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  font-size: larger;
+  background-color: rgb(99, 72, 3);
+  color: white;
 }

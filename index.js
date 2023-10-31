@@ -1,4 +1,5 @@
 function getResult(val){
+  
   function getConputerPick(){
     let num = Math.random() * 3;
     if (num < 1){return 'Rock';}
@@ -36,14 +37,9 @@ function getResult(val){
     } else{
       winnerText.className = 'neutralText';
       winnerText.innerText = winner;
-      console.log(winner);
     }
 
-    document.querySelector('#winText').innerText = "Wins: " + score.wins;
-
-    document.querySelector('#lossText').innerText = "Losses: " + score.losses;
-
-    document.querySelector('#neutralText').innerText = "Draws: " + score.draws;
+    score.displayScore();
   }
 
   const playerPick = val;
@@ -52,4 +48,30 @@ function getResult(val){
   display();
 }
 
-let score = {wins: 0, losses: 0, draws: 0};
+function resetScore(){
+  localStorage.clear();
+
+  for (let key in score ){
+    if (typeof score[key] === 'function'){
+      continue;
+    }
+    score[key] = 0;
+  }
+
+  score.displayScore();
+}
+
+let scoreStorage = localStorage.getItem('score');
+let score = JSON.parse(scoreStorage) || {wins: 0, losses: 0, draws: 0};
+
+score.displayScore = function() {
+  document.querySelector('#winText').innerText = "Wins: " + score.wins;
+
+  document.querySelector('#lossText').innerText = "Losses: " + score.losses;
+
+  document.querySelector('#neutralText').innerText = "Draws: " + score.draws;
+
+  localStorage.setItem('score', JSON.stringify(score));
+};
+
+score.displayScore();
