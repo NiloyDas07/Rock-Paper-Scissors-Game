@@ -10,17 +10,19 @@
   <div id="root">
     <div class="game">
       <div class="buttons">
-        <button value="rock" onclick=getResult(this.value)>Rock</button>
-        <button value="paper" onclick=getResult(this.value)>Paper</button>
-        <button value="scissors" onclick=getResult(this.value)>Scissors</button>
+        <button id="rockButton" value="Rock" onclick=getResult(this.value)>Rock</button>
+        <button id="paperButton" value="Paper" onclick=getResult(this.value)>Paper</button>
+        <button id="scissorsButton" value="Scissors" onclick=getResult(this.value)>Scissors</button>
       </div>
       <div class="result">
-        <h3>You Picked: </h3>
-        <h3>Computer Picked: </h3>
-        <h3>  </h3>
+        <h3 class="playerText" id="playerText">You Picked: </h3>
+        <h3 class="computerText"id="computerText" >Computer Picked: </h3>
+        <h3 id="winner" class="">  </h3>
       </div>
       <div class="score">
-        <h3>Current Score: 0</h3>`
+        <h3 class="playerText" id="winText">Wins: </h3>
+        <h3 class="computerText" id="lossText">Losses: </h3>
+        <h3 class="neutralText" id="neutralText">Draws: </h3>
       </div>
     </div>
   </div>

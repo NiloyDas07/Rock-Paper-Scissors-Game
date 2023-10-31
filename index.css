@@ -9,6 +9,7 @@ body{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: black;
 }
 
 .game{
@@ -21,10 +22,48 @@ body{
   width: 90%;
   display: flex;
   align-self: center;
-  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 
 button{
   height: 50px;
+  width: 90px;
   border-radius: 10px;
+}
+
+.score{
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+}
+
+.computerText{
+  color: red;
+}
+
+.playerText{
+  color: green;
+}
+
+.neutralText{
+  color: blue;
+}
+
+#rockButton{
+  color: white;
+  font-size: larger;
+  background-color: rgb(95, 50, 18);
+}
+
+#paperButton{
+  background-color: white;
+  font-size: larger;
+}
+
+#scissorsButton{
+  background-color: rgb(128, 126, 126);
+  color: white;
+  font-size: larger;
 }

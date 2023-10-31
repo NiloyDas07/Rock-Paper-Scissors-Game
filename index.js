@@ -1,27 +1,49 @@
 function getResult(val){
   function getConputerPick(){
     let num = Math.random() * 3;
-    if (num < 1){return 'rock';}
-    else if(num < 2){return 'paper';}
-    else{return 'scissors'}
+    if (num < 1){return 'Rock';}
+    else if(num < 2){return 'Paper';}
+    else{return 'Scissors'}
   }
 
   function getWinner(){
     if (playerPick === computerPick){
-      return 'Tie.';
-    } else if ((playerPick === 'rock' && computerPick === 'scissors') || (playerPick === 'scissors' && computerPick === 'paper') || (playerPick === 'paper' && computerPick === 'rock')){
-      score++;
-      return 'Player Wins'
+      score.draws++;
+      return 'Draw';
+    } else if ((playerPick === 'Rock' && computerPick === 'Scissors') || (playerPick === 'Scissors' && computerPick === 'Paper') || (playerPick === 'Paper' && computerPick === 'Rock')){
+      score.wins++;
+      return 'Player Wins';
     } else{
-      score--;
-      return 'Computer Wins'
+      score.losses++;
+      return 'Computer Wins';
     }
   }
 
   function display(){
-    document.querySelector('.result').innerHTML = `<h3>You Picked: ${playerPick}</h3><h3>Computer Picked: ${computerPick}</h3><h3>${winner}</h3>`
+    
 
-    document.querySelector('.score').innerHTML = `<h3>Current Score: ${score}</h3>`
+    document.querySelector('#playerText').innerText = `You Picked: ${playerPick}`;
+
+    document.querySelector('#computerText').innerText = `Computer Picked: ${computerPick}`;
+
+    const winnerText = document.querySelector('#winner');
+    if (winner === 'Player Wins'){
+      winnerText.className = "playerText";
+      winnerText.innerText = winner;
+    } else if (winner === 'Computer Wins'){
+      winnerText.className = 'computerText';
+      winnerText.innerText = winner;
+    } else{
+      winnerText.className = 'neutralText';
+      winnerText.innerText = winner;
+      console.log(winner);
+    }
+
+    document.querySelector('#winText').innerText = "Wins: " + score.wins;
+
+    document.querySelector('#lossText').innerText = "Losses: " + score.losses;
+
+    document.querySelector('#neutralText').innerText = "Draws: " + score.draws;
   }
 
   const playerPick = val;
@@ -30,4 +52,4 @@ function getResult(val){
   display();
 }
 
-let score = 0;
+let score = {wins: 0, losses: 0, draws: 0};
